@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ranks: MyString
+  name: MyString
+  position: MyString
+  nfl_team: MyString
+
+two:
+  ranks: MyString
+  name: MyString
+  position: MyString
+  nfl_team: MyString
