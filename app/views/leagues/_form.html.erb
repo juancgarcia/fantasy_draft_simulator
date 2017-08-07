@@ -14,6 +14,14 @@
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name, id: :league_name %>
+
+    <%= form.fields_for :teams do |name| %>
+      <p>
+        <%= name.label :name, "Teams" %>
+        <%= name.text_field :name, :rows => 12 %>
+      </p>
+    <% end %>
+
   </div>
 
   <div class="actions">

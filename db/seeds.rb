@@ -26,5 +26,9 @@ drew = Player.create(rank: '1', name: 'Drew Brees', position: 'QB', nfl_team: 'N
 aaron = Player.create(rank: '2', name: 'Aaron Rogers', position: 'QB', nfl_team: 'GB')
 tom = Player.create(rank: '3', name: 'Tom Brady', position: 'QB', nfl_team: 'NE')
 
+league1 = League.create(name: "League One")
+12.times do |i|
+  league1.teams.create!(name: "Team #{i}")
+end
 
 # team1 = Team.create(name: 'Team One')

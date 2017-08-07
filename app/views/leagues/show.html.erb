@@ -5,5 +5,12 @@
   <%= @league.name %>
 </p>
 
+<ol>
+  <% for teams in @league.teams %>
+  <li><%= teams.name %></li>
+  <%= link_to teams.name, league_teams_path(teams) %>
+  <% end %>
+</ol>
+
 <%= link_to 'Edit', edit_league_path(@league) %> |
 <%= link_to 'Back', leagues_path %>
