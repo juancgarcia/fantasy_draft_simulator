@@ -20,7 +20,7 @@ League.destroy_all
 #   t.position = row['position']
 #   t.team = row['team']
 # end
-league1 = League.create(name: 'League One')
+# league1 = League.create(name: 'League One')
 
 drew = Player.create(rank: '1', name: 'Drew Brees', position: 'QB', nfl_team: 'NO')
 aaron = Player.create(rank: '2', name: 'Aaron Rogers', position: 'QB', nfl_team: 'GB')
