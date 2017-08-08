@@ -5,6 +5,11 @@ class PlayersController < ApplicationController
   # GET /players.json
   def index
     @players = Player.all
+    @rbs = @players.where(:position => 'RB')
+    @wrs = @players.where(:position => 'WR')
+    @qbs = @players.where(:position => 'QB')
+    @defs = @players.where(:position => 'DEF')
+    @pks = @players.where(:position => 'PK')
   end
 
   # GET /players/1

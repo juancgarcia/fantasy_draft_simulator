@@ -11,17 +11,6 @@
   <% end %>
 </ul>
 
-<tbody>
-  <% @players.each do |player| %>
-    <tr>
-      <td><%= player.rank %></td>
-      <td><%= link_to player.name, player %></td>
-      <td><%= player.position %></td>
-      <td><%= player.nfl_team %></td>
-      <td><%= link_to 'Draft', new_player_plays_on_path(player) %></td>
-    </tr>
-  <% end %>
-</tbody>
-
 <%= link_to 'Edit', edit_league_path(@league) %> |
-<%= link_to 'Back', leagues_path %>
+<%= link_to 'Back', leagues_path %> |
+<%= link_to 'Start Draft', draft_path(@league) %>

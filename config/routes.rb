@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  root to: 'leagus#index'
+  root to: 'leagues#index'
+  get '/leagues/:id/draft', to: 'plays_on#new'
+  post '/leagues/:id/draft', to: 'plays_on#create'
 
   resources :leagues do
     resources :teams
