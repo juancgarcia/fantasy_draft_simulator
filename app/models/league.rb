@@ -4,7 +4,7 @@ class League < ApplicationRecord
 
   def add_teams
     12.times do |i|
-      self.team.create!(name: "Team #{i}")
+      self.teams.create!(name: "Team #{i}")
     end
   end
 end

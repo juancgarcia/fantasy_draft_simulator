@@ -25,8 +25,8 @@ class LeaguesController < ApplicationController
   # POST /leagues
   # POST /leagues.json
   def create
-    @league = League.new(league_params)
-    @league.add_teams
+    @league = League.create.add_teams
+    # @league.add_teams
     respond_to do |format|
       if @league.save
         format.html { redirect_to @league, notice: 'League was successfully created.' }
