@@ -19,6 +19,9 @@ class PlayersController < ApplicationController
 
   # GET /players/1/edit
   def edit
+    @player = Player.find(params[:id])
+    @player.plays_on.create(team: team)
+    redirect_to players_path
   end
 
   # POST /players

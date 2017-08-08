@@ -20,6 +20,7 @@
         <td><%= link_to player.name, player %></td>
         <td><%= player.position %></td>
         <td><%= player.nfl_team %></td>
+        <td><%= link_to 'Draft', new_player_plays_on_path(player) %></td>
       </tr>
     <% end %>
   </tbody>
