@@ -25,7 +25,6 @@ class LeaguesController < ApplicationController
   # POST /leagues
   # POST /leagues.json
   def create
-    # @new_league = League.new_league
     @league = League.new(league_params)
     @league.add_teams
     respond_to do |format|
