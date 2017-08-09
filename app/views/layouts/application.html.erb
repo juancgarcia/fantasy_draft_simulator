@@ -7,8 +7,13 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <nav>
+      <ul class="nav_bar">
+        <li><a href="#index">Fantasy Football Draft Prep</a></li>
+        <li style="float:right"><a class="active" href="#draft">Draft Now</a></li>
+      </ul>
+    </nav></br>
     <%= yield %>
   </body>
 </html>

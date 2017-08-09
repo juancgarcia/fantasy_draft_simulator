@@ -50,6 +50,13 @@ class LeaguesController < ApplicationController
     @players = Player.where.not(:id => @drafted_players)
     @index = params[:index].to_i || 0
     @current_team = @teams[@index]
+    @all_players = Player.all
+    @rbs = @all_players.where(:position => 'RB')
+    @wrs = @all_players.where(:position => 'WR')
+    @qbs = @all_players.where(:position => 'QB')
+    @defs = @all_players.where(:position => 'DEF')
+    @pks = @all_players.where(:position => 'PK')
+    @tes = @players.where(:position => 'TE')
   end
 
   # PATCH/PUT /leagues/1

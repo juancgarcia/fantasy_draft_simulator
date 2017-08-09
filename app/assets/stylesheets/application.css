@@ -13,3 +13,69 @@
  *= require_tree .
  *= require_self
  */
+.players {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 10px;
+}
+
+.nav_bar {
+  list-style-type: none;
+  margin: 0 auto;
+  margin-right: 5%;
+  padding: 0;
+  margin-bottom: 10px;
+  overflow: visible;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.nav_bar li {
+  float: left;
+}
+
+.nav_bar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav_bar li a {
+  background-color: #4CAF50;
+}
+.draft_board {
+  display: flex;
+  flex-direction: row;
+  font-size: 10px;
+  list-style-type: none;
+}
+.teams {
+  width: 25%;
+}
+
+.picked_players {
+  font-size: 10px;
+}
+
+.all_players {
+  width: 25%
+}
+
+.all_players li {
+  font-size: 10px;
+}
+
+.players_by_pos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.players_by_pos li {
+  font-size: 10px;
+}

@@ -8,6 +8,7 @@ class PlayersController < ApplicationController
     @rbs = @players.where(:position => 'RB')
     @wrs = @players.where(:position => 'WR')
     @qbs = @players.where(:position => 'QB')
+    @tes = @players.where(:position => 'TE')
     @defs = @players.where(:position => 'DEF')
     @pks = @players.where(:position => 'PK')
   end

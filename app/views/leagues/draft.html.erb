@@ -1,23 +1,96 @@
-<h1>Draft player for <%= @current_team.name %></h1>
+<h2>Now drafting for: <%= @current_team.name %></h2>
 
-<div class="teams">
-  <ul>
-    <% @league.teams.each do |t|%>
-      <li><%= t.name %></li>
-      <% t.players.each do |p| %>
-          <ol><%= p.position %>  <%=  p.name %></ol>
+<div class="draft_board">
+  <div class="teams">
+    <ul>
+      <% @league.teams.each do |t|%>
+        <p><%= t.name %></p>
+        <% t.players.each do |p| %>
+            <li class="picked_players"><%= p.position %>  <%=  p.name %></li>
+        <% end %>
       <% end %>
-    <% end %>
-  </ul>
-</div>
+    </ul>
+  </div>
 
-<div class="players">
-  <ul>
-    <% @players.each do |player| %>
-      <li>
-        <%= player.name %>
-        <%= link_to "Draft Player", league_team_player_draft_path(@league, @current_team, player, index: (@index + 1)), method: :post %>
-      </li>
-    <% end %>
-  </ul>
+  <div class="all_players">
+    <div>
+      <h3>All Available Players</h3>
+      <ul>
+        <% @players.each do |player| %>
+          <li>
+            <%= player.name %>
+            <%= link_to "Draft Player", league_team_player_draft_path(@league, @current_team, player, index: (@index + 1)), method: :post %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="players_by_pos">
+    <div>
+      <h3>All Available Quarterbacks</h3>
+      <ul>
+        <% @qbs.each do |player| %>
+          <li>
+            <%= player.name %>
+            <%= link_to "Draft Player", league_team_player_draft_path(@league, @current_team, player, index: (@index + 1)), method: :post %>
+          </li>
+        <% end %>
+      </ul>
+      </div>
+    <div>
+      <h3>All Available Running Backs</h3>
+      <ul>
+        <% @rbs.each do |player| %>
+          <li>
+            <%= player.name %>
+            <%= link_to "Draft Player", league_team_player_draft_path(@league, @current_team, player, index: (@index + 1)), method: :post %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div>
+      <h3>All Available Widerecievers</h3>
+      <ul>
+        <% @wrs.each do |player| %>
+          <li>
+            <%= player.name %>
+            <%= link_to "Draft Player", league_team_player_draft_path(@league, @current_team, player, index: (@index + 1)), method: :post %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div>
+      <h3>All Available Tight Ends</h3>
+      <ul>
+        <% @tes.each do |player| %>
+          <li>
+            <%= player.name %>
+            <%= link_to "Draft Player", league_team_player_draft_path(@league, @current_team, player, index: (@index + 1)), method: :post %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div>
+      <h3>All Available Defences</h3>
+      <ul>
+        <% @defs.each do |player| %>
+          <li>
+            <%= player.name %>
+            <%= link_to "Draft Player", league_team_player_draft_path(@league, @current_team, player, index: (@index + 1)), method: :post %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div>
+      <h3>All Available Kickers</h3>
+      <ul>
+        <% @pks.each do |player| %>
+          <li>
+            <%= player.name %>
+            <%= link_to "Draft Player", league_team_player_draft_path(@league, @current_team, player, index: (@index + 1)), method: :post %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>
