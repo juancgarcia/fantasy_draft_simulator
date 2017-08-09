@@ -23,10 +23,9 @@
 .nav_bar {
   list-style-type: none;
   margin: 0 auto;
-  margin-right: 5%;
   padding: 0;
   margin-bottom: 10px;
-  overflow: visible;
+  overflow: hidden;
   background-color: #333;
   position: fixed;
   top: 0;
@@ -43,19 +42,27 @@
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-}
-
-.nav_bar li a {
   background-color: #4CAF50;
 }
+
 .draft_board {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   font-size: 10px;
   list-style-type: none;
 }
+
+.draft_board div {
+  padding: 5px;
+}
+.draft_board a {
+  color: #4CAF50;
+  float: right;
+}
+
 .teams {
-  width: 25%;
+  width: 150px;
 }
 
 .picked_players {
@@ -63,7 +70,8 @@
 }
 
 .all_players {
-  width: 25%
+  width: 250px;
+  padding: 1px;
 }
 
 .all_players li {
@@ -74,8 +82,38 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
+  width: 67%;
+  height: 50%;
 }
 
-.players_by_pos li {
-  font-size: 10px;
+.players_by_pos div {
+  margin: 0px;
+  height: 50%;
+}
+
+.hero {
+  height: 375px;
+  width: 100%;
+  border: 2px solid blue;
+}
+.new_draft {
+  height: 50px;
+  width: 200px;
+  background: #4CAF50;
+  text-align: center;
+  margin: 160px auto;
+}
+
+.new_draft div {
+  padding-top: 18px;
+}
+
+.new_draft div a {
+  color: white;
+  text-decoration: none;
+}
+
+.index_copy {
+  display: inline-block;
 }

@@ -50,6 +50,7 @@ class LeaguesController < ApplicationController
     @players = Player.where.not(:id => @drafted_players)
     @index = params[:index].to_i || 0
     @current_team = @teams[@index]
+    @positions = ['QB', 'RB', 'WR', 'TE', 'DEF', 'PK']
     @all_players = Player.all
     @rbs = @all_players.where(:position => 'RB')
     @wrs = @all_players.where(:position => 'WR')
