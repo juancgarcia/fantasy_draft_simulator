@@ -69,6 +69,20 @@ class PlayersController < ApplicationController
     end
   end
 
+  def draft
+    @league = League.find(params[:league_id])
+    @team = Team.find(params[:team_id])
+    @player = Player.find(params[:player_id])
+    @next_index = params[index]
+
+    PlaysOn.create({
+      team: @team,
+      player: @player
+    })
+
+    redirect_to draft_league_path(@league, index: @next_index)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_player

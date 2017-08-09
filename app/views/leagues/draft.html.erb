@@ -1,1 +1,23 @@
-<h1>working</h1>
+<h1>Draft player for <%= @current_team.name %></h1>
+
+<div class="teams">
+  <ul>
+    <% for teams in @league.teams %>
+      <li><%= link_to teams.name, league_teams_path(teams) %></li>
+      <% for players in @team_players %>
+        <%= players.name %>
+      <% end %>
+    <% end %>
+  </ul>
+</div>
+
+<div class="players">
+  <ul>
+    <% @players.each do |player| %>
+      <li>
+        <%= player.name %>
+        <%= link_to "Draft Player", league_team_player_draft_path(@league, @current_team, player, index: (@index + 1)), method: :post %>
+      </li>
+    <% end %>
+  </ul>
+</div>

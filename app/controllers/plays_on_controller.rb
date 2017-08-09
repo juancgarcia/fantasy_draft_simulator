@@ -1,7 +1,8 @@
-class Plays_onController < ApplicationController
+class PlaysOnController < ApplicationController
+
   def new
-    @player = Player.find(params[:post_id])
-    @plays_on = @player.plays_on.new
+    @players = Player.all
+
   end
 
   def create
@@ -10,4 +11,5 @@ class Plays_onController < ApplicationController
     @player.plays_on.create(team: @team)
     redirect_to player_path(@player)
   end
+
 end

@@ -16,6 +16,7 @@ class LeaguesController < ApplicationController
   def new
     league_name = (1 + rand(10000))
     @league = League.new(name: "League #{league_name}")
+    @players = Player.all
   end
 
   # GET /leagues/1/edit
@@ -36,6 +37,15 @@ class LeaguesController < ApplicationController
         format.json { render json: @league.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def draft
+    @league = League.find(params[:id])
+    @teams = @league.teams
+    @players = Player.all
+    @team_players = @teams.plays_on.players
+    @index = params[:index] || 0
+    @current_team = @teams[@index]
   end
 
   # PATCH/PUT /leagues/1
