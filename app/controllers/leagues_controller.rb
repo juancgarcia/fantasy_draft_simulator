@@ -42,9 +42,13 @@ class LeaguesController < ApplicationController
   def draft
     @league = League.find(params[:id])
     @teams = @league.teams
-    @players = Player.all
-    @team_players = @teams.plays_on.players
-    @index = params[:index] || 0
+    @drafted_players = []
+    @league.teams.each{ |t|
+      t.players.each{ |j|
+        @drafted_players << j.id}
+      }
+    @players = Player.where.not(:id => @drafted_players)
+    @index = params[:index].to_i || 0
     @current_team = @teams[@index]
   end
 

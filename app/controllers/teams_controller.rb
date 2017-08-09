@@ -37,6 +37,8 @@ class TeamsController < ApplicationController
     end
   end
 
+
+
   # PATCH/PUT /teams/1
   # PATCH/PUT /teams/1.json
   def update

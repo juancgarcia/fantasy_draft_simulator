@@ -2,10 +2,10 @@
 
 <div class="teams">
   <ul>
-    <% for teams in @league.teams %>
-      <li><%= link_to teams.name, league_teams_path(teams) %></li>
-      <% for players in @team_players %>
-        <%= players.name %>
+    <% @league.teams.each do |t|%>
+      <li><%= t.name %></li>
+      <% t.players.each do |p| %>
+          <ol><%= p.position %>  <%=  p.name %></ol>
       <% end %>
     <% end %>
   </ul>

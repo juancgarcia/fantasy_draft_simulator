@@ -73,7 +73,7 @@ class PlayersController < ApplicationController
     @league = League.find(params[:league_id])
     @team = Team.find(params[:team_id])
     @player = Player.find(params[:player_id])
-    @next_index = params[index]
+    @next_index = params[:index]
 
     PlaysOn.create({
       team: @team,
