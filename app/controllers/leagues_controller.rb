@@ -21,6 +21,7 @@ class LeaguesController < ApplicationController
 
   # GET /leagues/1/edit
   def edit
+    @league = League.find(params[:id])
   end
 
   # POST /leagues
@@ -51,37 +52,18 @@ class LeaguesController < ApplicationController
     @index = params[:index].to_i || 0
     @current_team = @teams[@index]
     @positions = ['QB', 'RB', 'WR', 'TE', 'DEF', 'PK']
-    @all_players = Player.all
-    @rbs = @all_players.where(:position => 'RB')
-    @wrs = @all_players.where(:position => 'WR')
-    @qbs = @all_players.where(:position => 'QB')
-    @defs = @all_players.where(:position => 'DEF')
-    @pks = @all_players.where(:position => 'PK')
-    @tes = @players.where(:position => 'TE')
   end
 
-  # PATCH/PUT /leagues/1
-  # PATCH/PUT /leagues/1.json
   def update
-    respond_to do |format|
-      if @league.update(league_params)
-        format.html { redirect_to @league, notice: 'League was successfully updated.' }
-        format.json { render :show, status: :ok, location: @league }
-      else
-        format.html { render :edit }
-        format.json { render json: @league.errors, status: :unprocessable_entity }
-      end
-    end
+    @league = League.find(params[:id])
+    @league.update(league_params)
+    redirect_to league_path
   end
 
-  # DELETE /leagues/1
-  # DELETE /leagues/1.json
   def destroy
+    @league = League.find(params[:id])
     @league.destroy
-    respond_to do |format|
-      format.html { redirect_to leagues_url, notice: 'League was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to leagues_path(@league)
   end
 
   private
