@@ -1,11 +1,12 @@
+require 'team_names'
+
 class League < ApplicationRecord
   has_many :teams, :dependent => :destroy
-  # has_many :plays_on, :dependent => :destroy
-  # accepts_nested_attributes_for :teams, :plays_on
 
   def add_teams
+    name = TeamNames.team_names.names
     12.times do |i|
-      self.teams.create!(name: "Team #{i}")
+      self.teams.create!(name: "Team #{name[i]}")
     end
   end
 end

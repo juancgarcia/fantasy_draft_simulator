@@ -68,7 +68,20 @@ class PlayersController < ApplicationController
     @league = League.find(params[:league_id])
     @team = Team.find(params[:team_id])
     @player = Player.find(params[:player_id])
-    @next_index = params[:index]
+    @@round = 1
+    # round =
+    # @next_index = params[:index].to_i
+    if @next_index == 11
+      @@round += 1
+    end
+    if @@round % 2 == 0
+      @next_index = params[:index].to_i - 1
+      # picks += 1
+    elsif @@round % 2 != 0
+      @next_index = params[:index].to_i + 1
+      # picks += 1
+    end
+
 
     PlaysOn.create({
       team: @team,
