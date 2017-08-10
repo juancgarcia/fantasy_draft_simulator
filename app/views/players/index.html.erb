@@ -24,13 +24,3 @@
     <% end %>
   </tbody>
 </table>
-
-<ul>
-  <% @players.each do |player| %>
-    <li>
-      <%= link_to "#{player.name}", player_path(player) %>
-      <%= link_to "Draft".html_safe, draft_player_path(player), method: :post %>
-
-    </li>
-  <% end %>
-</ul>

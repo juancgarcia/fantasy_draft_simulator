@@ -95,7 +95,10 @@
 .hero {
   height: 375px;
   width: 100%;
-  border: 2px solid blue;
+  border: 2px solid white;
+  background-image: url(stands.jpg);
+  background-size: cover;
+  background-position: center;
 }
 .new_draft {
   height: 50px;
@@ -109,11 +112,26 @@
   padding-top: 18px;
 }
 
-.new_draft div a {
+.new_draft a {
   color: white;
   text-decoration: none;
+  text-align: center;
 }
 
 .index_copy {
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.index_copy div {
+  width: 45%;
+}
+
+#player_div.new_draft {
+  background-image: url(player.jpg);
+}
+
+.index_copy h2 {
+  text-align: center;
 }
