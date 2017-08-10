@@ -64,16 +64,19 @@ class PlayersController < ApplicationController
     end
   end
 
+  $round = 0
   def draft
     @league = League.find(params[:league_id])
     @team = Team.find(params[:team_id])
     @player = Player.find(params[:player_id])
-    $round = 1
     @next_index = params[:index]
 
-    if @next_index == 10
+    if @next_index.to_i == 11
+      $round += 1
+    elsif @next_index.to_i == 0
       $round += 1
     end
+
 
     if $round % 2 == 0
       @next_index = params[:index].to_i - 1
