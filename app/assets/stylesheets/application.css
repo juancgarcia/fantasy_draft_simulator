@@ -13,6 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+ body {
+   margin: auto;
+   /*margin-bottom: 50px;*/
+ }
+
+ .yield {
+   margin-top: 33px;
+ }
+
 .players {
   display: flex;
   flex-direction: row;
@@ -24,12 +34,13 @@
   list-style-type: none;
   margin: 0 auto;
   padding: 0;
-  margin-bottom: 10px;
+  margin-bottom: 300px;
   overflow: hidden;
   background-color: #333;
   position: fixed;
   top: 0;
   width: 100%;
+  /*padding-bottom: 20px;*/
 }
 
 .nav_bar li {
@@ -127,12 +138,21 @@
 
 .index_copy div {
   width: 45%;
+
 }
 
-#player_div.new_draft {
-  background-image: url(player.jpg);
+.view_players {
+  background: url(player.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .index_copy h2 {
   text-align: center;
+}
+
+.draft_now {
+  background: url(ball.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
