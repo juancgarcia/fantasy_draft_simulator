@@ -16,7 +16,7 @@
         <% @players.each do |player| %>
           <li>
             <%= player.rank %> <%= player.name %> <%= player.position %> <%= player.nfl_team %>
-            <%= link_to "Draft", league_team_player_draft_path(@league, @current_team, player, index: (@index)), method: :post %>
+            <%= link_to "Draft", league_team_player_draft_path(@league, @current_team, player, index: (@index), round: (@round)), method: :post %>
           </li>
         <% end %>
     </div>
@@ -29,7 +29,7 @@
         <% @players.where(:position => pos).each do |player| %>
         <li>
           <%= player.rank %> <%= player.name %> <%= player.nfl_team %>
-          <%= link_to "Draft", league_team_player_draft_path(@league, @current_team, player, index: (@index)), method: :post %>
+          <%= link_to "Draft", league_team_player_draft_path(@league, @current_team, player, index: (@index), round: (@round)), method: :post %>
         </li>
         <% end %>
       </div>
