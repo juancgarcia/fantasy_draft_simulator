@@ -16,7 +16,6 @@
 
  body {
    margin: auto;
-   /*margin-bottom: 50px;*/
  }
 
  .yield {
@@ -40,7 +39,6 @@
   position: fixed;
   top: 0;
   width: 100%;
-  /*padding-bottom: 20px;*/
 }
 
 .nav_bar li {
@@ -138,21 +136,27 @@
 
 .index_copy div {
   width: 45%;
-
-}
-
-.view_players {
-  background: url(player.jpg);
-  background-size: contain;
-  background-repeat: no-repeat;
 }
 
 .index_copy h2 {
   text-align: center;
 }
 
-.draft_now {
-  background: url(ball.jpg);
-  background-size: contain;
-  background-repeat: no-repeat;
+.button1 {
+  height: 50px;
+  width: 200px;
+  background: #4CAF50;
+  text-align: center;
+  margin: auto;
+}
+
+.button1 div {
+  padding-top: 18px;
+  text-align: center;
+}
+
+.button1 a {
+  color: white;
+  text-decoration: none;
+  text-align: center;
 }
