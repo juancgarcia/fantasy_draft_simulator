@@ -1,24 +1,15 @@
-# README
+# Fantasy Football Draft Helper
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The Fantasy Football Draft Helper allow user to practice fantasy football drafts.
+Users can test different strategies and research players
 
-Things you may want to cover:
+The app is built with Ruby on Rails and contains three tables: Players, Teams, and Leagues.
 
-* Ruby version
+General Approach:
+Drafts happen for leagues, where players are assigned to teams.  There therefore, leagues have a one to many relationship with teams.
+Within a league, players have a one to many relationship with teams, however, because all teams are stored in one table, teams and players have a many to many relationship.
+In order to create relationships between leagues, teams, and drafted players, player routes are nested into team routes which are nested into leagues.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Challenges:
+The draft action was the most difficult part of this project and consume the majority of the work time.  This led to a limited set of features being implemented.
+The draft order remains an issue.  While the order follows a proper snake draft (1 -> 12 then 12 -> 1), the first and last teams are not able to draft twice in a row at the beginning of a round.
