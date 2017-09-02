@@ -15,7 +15,7 @@
       <h3>All Available Players</h3>
         <% @players.each do |player| %>
           <li>
-            <%= player.rank %> <%= player.name %> <%= player.position %> <%= player.nfl_team %>
+            <%= player.rank %> <%= player.name %> <%= player.position %> <%= player.tier %>
             <%= link_to "Draft", league_team_player_draft_path(@league, @current_team, player, index: (@index)), method: :post %>
           </li>
         <% end %>

@@ -11,6 +11,6 @@ Player.destroy_all
 League.destroy_all
 
 CSV.foreach("#{Rails.root}/db/basic_data.csv") do |p|
-    player = Player.new(rank: p[0], name: p[1], position: p[2], nfl_team: p[3])
+    player = Player.new(rank: p[0], name: p[1], position: p[2], nfl_team: p[3], tier: p[4])
     player.save!
 end

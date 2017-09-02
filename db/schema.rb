@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170807154233) do
     t.string "name"
     t.string "position"
     t.string "nfl_team"
+    t.string "tier"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

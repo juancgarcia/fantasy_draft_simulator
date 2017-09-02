@@ -5,7 +5,7 @@ class CreatePlayers < ActiveRecord::Migration[5.1]
       t.string :name
       t.string :position
       t.string :nfl_team
-
+      t.string :tier
       t.timestamps
     end
   end
