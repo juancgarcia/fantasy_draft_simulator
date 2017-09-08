@@ -5,5 +5,8 @@
   <%= @team.name %>
 </p>
 
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>
+<%
+# Updated links for nested path
+%>
+<%= link_to 'Edit', edit_league_team_path(@team) %> |
+<%= link_to 'Back', league_teams_path %>

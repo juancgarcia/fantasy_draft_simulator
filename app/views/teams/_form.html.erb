@@ -1,4 +1,17 @@
-<%= form_with(model: team, local: true) do |form| %>
+<%
+# The action url changes depending on wether we're POSTing a new team,
+# or PUTing changes to an existing team.
+
+  form_url = if @team && @team.id
+    # update needs a path to /leagues/:league_id/teams/:id
+    # and so needs the @team variable to grab @team.id
+    league_team_path(@league, @team)
+  else
+    # create needs a path to /leagues/:league_id/teams
+    league_teams_path(@league)
+  end
+%>
+<%= form_with(url: form_url, model: @team, local: true) do |form| %>
   <% if team.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(team.errors.count, "error") %> prohibited this team from being saved:</h2>

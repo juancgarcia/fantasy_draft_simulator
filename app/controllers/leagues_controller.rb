@@ -27,7 +27,11 @@ class LeaguesController < ApplicationController
   # POST /leagues
   # POST /leagues.json
   def create
-    @league = League.create(league_params)
+    # initializing the draft round and team drafting index both to `0`
+    @league = League.create(league_params.merge({
+      round: 0,
+      drafting_index: 0
+      }))
     @league.add_teams
     respond_to do |format|
       if @league.save
@@ -49,7 +53,8 @@ class LeaguesController < ApplicationController
         @drafted_players << j.id}
       }
     @players = Player.where.not(:id => @drafted_players)
-    @index = params[:index].to_i || 0
+    # read index from @league instead of url param
+    @index = @league.drafting_index
     # @round = params[:round].to_i || 1
     @current_team = @teams[@index]
     @positions = ['QB', 'RB', 'WR', 'TE', 'DEF', 'PK']

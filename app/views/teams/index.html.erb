@@ -14,14 +14,19 @@
     <% @teams.each do |team| %>
       <tr>
         <td><%= team.name %></td>
-        <td><%= link_to 'Show', team %></td>
-        <td><%= link_to 'Edit', edit_team_path(team) %></td>
-        <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%
+        # Updated links for nested path
+        %>
+        <td><%= link_to 'Show', league_team_path(@league, team) %></td>
+        <td><%= link_to 'Edit', edit_league_team_path(@league, team) %></td>
+        <td><%= link_to 'Destroy', league_team_path(@league, team), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Team', new_team_path %>
+<%
+# Updated link for nested path
+%>
+<%= link_to 'New Team', new_league_team_path(@league) %>

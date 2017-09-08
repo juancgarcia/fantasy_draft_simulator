@@ -1,10 +1,15 @@
 class TeamsController < ApplicationController
+  # Now that the teams route is nested under leagues, we need a reference to the
+  # selected league
+  before_action :set_league
   before_action :set_team, only: [:show, :edit, :update, :destroy]
 
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all
+    # Instead of all teams, fetch only teams belonging to the current league
+    # @teams = Team.all
+    @teams = @league.teams
   end
 
   # GET /teams/1
@@ -24,11 +29,14 @@ class TeamsController < ApplicationController
   # POST /teams
   # POST /teams.json
   def create
-    @team = Team.new(team_params)
+    # Scope the new team to our current league
+    # @team = Team.new(team_params)
+    @team = @league.teams.new(team_params)
 
     respond_to do |format|
       if @team.save
-        format.html { redirect_to @team, notice: 'Team was successfully created.' }
+        # path needs to be updated to reference league
+        format.html { redirect_to league_team_path(@league, @team), notice: 'Team was successfully created.' }
         format.json { render :show, status: :created, location: @team }
       else
         format.html { render :new }
@@ -44,7 +52,8 @@ class TeamsController < ApplicationController
   def update
     respond_to do |format|
       if @team.update(team_params)
-        format.html { redirect_to @team, notice: 'Team was successfully updated.' }
+        # path needs to be updated to reference league
+        format.html { redirect_to league_team_path(@league, @team), notice: 'Team was successfully updated.' }
         format.json { render :show, status: :ok, location: @team }
       else
         format.html { render :edit }
@@ -58,7 +67,8 @@ class TeamsController < ApplicationController
   def destroy
     @team.destroy
     respond_to do |format|
-      format.html { redirect_to teams_url, notice: 'Team was successfully destroyed.' }
+      # path needs to be updated to reference league
+      format.html { redirect_to league_teams_url(@league), notice: 'Team was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -67,6 +77,11 @@ class TeamsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_team
       @team = Team.find(params[:id])
+    end
+
+    # Find the selected league via url param
+    def set_league
+      @league = League.find(params[:league_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -6,8 +6,15 @@
 </p>
 
 <ul>
-  <% for teams in @league.teams %>
-    <li><%= link_to teams.name, league_teams_path(teams) %></li>
+<%
+  # We need to use the singular league_team_path helper here to build a
+  # path for the one team /leagues/:league_id/teams/:id
+
+  # the plural league_teams_path helper would build
+  # a path for the teams index /leagues/:league_id/teams
+%>
+  <% for team in @league.teams %>
+    <li><%= link_to team.name, league_teams_path(@league, team) %></li>
   <% end %>
 </ul>
 

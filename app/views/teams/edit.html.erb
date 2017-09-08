@@ -1,6 +1,8 @@
 <h1>Editing Team</h1>
 
 <%= render 'form', team: @team %>
-
-<%= link_to 'Show', @team %> |
-<%= link_to 'Back', teams_path %>
+<%
+# Updated links for nested path
+%>
+<%= link_to 'Show', league_team_path(@team) %> |
+<%= link_to 'Back', league_teams_path(@league) %>
